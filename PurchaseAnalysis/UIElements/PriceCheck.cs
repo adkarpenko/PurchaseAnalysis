@@ -15,7 +15,7 @@ namespace PurchaseAnalysis.UIElements
             Date = date;
 
 
-            PriceLabel1 labelPrice = new PriceLabel1(Price);
+            PriceLabel1 labelPrice = new PriceLabel1(price);
             PriceLabel1 labelPrice1 = new PriceLabel1(fiscalNumber);
             PriceLabel1 labelPrice2 = new PriceLabel1(fiscalDocument);
             PriceLabel1 labelPrice3 = new PriceLabel1(fiscalSign);
@@ -33,8 +33,8 @@ namespace PurchaseAnalysis.UIElements
 
             BorderColor = Color.Green;
         }
-        //public string price { get; }
-        //public string fiscalNumber { get; }
+        //public string Price { get; }
+        //public string FiscalNumber { get; }
         //public string FiscalDocument { get; }
         //public string FiscalSign { get; }
         //public string N { get; }

@@ -19,7 +19,7 @@ namespace PurchaseAnalysis
         string fiscalNumber, fiscalDocument, fiscalSign, n, date;
         public DateTime date1;
         public List<PriceCheck> list1 = new List<PriceCheck>();
-        public PriceCheck check;
+        //public PriceCheck check;
         //protected internal ObservableCollection<PriceCheck> Checks { get; set; }
         public MainPage()
         {
@@ -34,7 +34,7 @@ namespace PurchaseAnalysis
 
         private async void ToCommonPage(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new CommonPage(check));
+            await Navigation.PushAsync(new CommonPage(list1));
         }
 
         void Update()
@@ -86,15 +86,15 @@ namespace PurchaseAnalysis
                 list.Add(new PriceNode(id, price));
 
                 string[] result1 = result.Split('&');
-                fiscalNumber = result1[2].Remove(0, 2);
-                fiscalDocument = result1[3].Remove(0, 2);
-                fiscalSign = result1[4].Remove(0, 2);
-                n = result1[5].Remove(0, 2);
-                date = result1[0].Remove(0, 2);
+                //fiscalNumber = result1[2].Remove(0, 2);
+                //fiscalDocument = result1[3].Remove(0, 2);
+                //fiscalSign = result1[4].Remove(0, 2);
+                //n = result1[5].Remove(0, 2);
+                //date = result1[0].Remove(0, 2);
                 date1 = DateTime.Parse(date);
 
 
-                check = new PriceCheck (sum.ToString(),fiscalNumber, fiscalDocument, fiscalSign,n,date );
+                list1.Add(new PriceCheck (price.ToString(), result1[2].Remove(0, 2), result1[3].Remove(0, 2), result1[4].Remove(0, 2), result1[5].Remove(0, 2), result1[0].Remove(0, 2)));
 
                 Update();
             }

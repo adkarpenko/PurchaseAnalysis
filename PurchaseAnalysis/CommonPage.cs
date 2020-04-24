@@ -7,22 +7,15 @@ using Xamarin.Forms;
 
 namespace PurchaseAnalysis
 {
-    public class CommonPage : MainPage
+    public class CommonPage : UIContentPage
     {
-
-        public CommonPage(PriceCheck check)
+        UILabel1 text1 = new UILabel1("Total: ");
+        public CommonPage(List<PriceCheck> list1)
         {
-            UILabel la = new UILabel("");
-            try
-            {
-
-            Content = new StackLayout { Children = { check } };
-            }
-            catch (Exception)
-            {
-                la.Text = "uhygtyd";
-               
-            }
+            StackLayout sp = new StackLayout();
+            sp.Children.Add(text1);
+            //foreach (var n in list1)
+            //    sp.Children.Add(n);
 
         }
 
