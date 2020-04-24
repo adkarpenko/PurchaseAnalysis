@@ -2,6 +2,8 @@
 using PurchaseAnalysis.UIElements;
 using Xamarin.Forms;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+
 namespace PurchaseAnalysis
 {
     public class MainPage : UIContentPage
@@ -18,6 +20,7 @@ namespace PurchaseAnalysis
         public DateTime date1;
         public List<PriceCheck> list1 = new List<PriceCheck>();
         public PriceCheck check;
+        //protected internal ObservableCollection<PriceCheck> Checks { get; set; }
         public MainPage()
         {
             button.Clicked += Scan;
@@ -31,7 +34,7 @@ namespace PurchaseAnalysis
 
         private async void ToCommonPage(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new CommonPage());
+            await Navigation.PushAsync(new CommonPage(check));
         }
 
         void Update()
@@ -90,8 +93,9 @@ namespace PurchaseAnalysis
                 date = result1[0].Remove(0, 2);
                 date1 = DateTime.Parse(date);
 
-                check = new PriceCheck(sum.ToString(), fiscalNumber, fiscalDocument, fiscalSign, n, date);
-              
+
+                check = new PriceCheck (sum.ToString(),fiscalNumber, fiscalDocument, fiscalSign,n,date );
+
                 Update();
             }
             catch { }

@@ -9,11 +9,20 @@ namespace PurchaseAnalysis
 {
     public class CommonPage : MainPage
     {
-        public CommonPage()
+
+        public CommonPage(PriceCheck check)
         {
+            UILabel la = new UILabel("");
+            try
+            {
 
-
-            Content = check;
+            Content = new StackLayout { Children = { check } };
+            }
+            catch (Exception)
+            {
+                la.Text = "uhygtyd";
+               
+            }
 
         }
 
