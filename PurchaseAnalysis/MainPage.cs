@@ -16,8 +16,8 @@ namespace PurchaseAnalysis
         UIButton1 button1 = new UIButton1("Click to show total sum");
         UILabel1 text1 = new UILabel1("Total: ");
         UIButton buttonNext = new UIButton("Click to show all info");
-        string fiscalNumber, fiscalDocument, fiscalSign, n, date;
-        public DateTime date1;
+        string fiscalNumber, fiscalDocument, fiscalSign, n, data;
+        public DateTime data1;
         public List<PriceCheck> list1 = new List<PriceCheck>();
         //public PriceCheck check;
         //protected internal ObservableCollection<PriceCheck> Checks { get; set; }
@@ -86,15 +86,17 @@ namespace PurchaseAnalysis
                 list.Add(new PriceNode(id, price));
 
                 string[] result1 = result.Split('&');
-                //fiscalNumber = result1[2].Remove(0, 2);
-                //fiscalDocument = result1[3].Remove(0, 2);
-                //fiscalSign = result1[4].Remove(0, 2);
-                //n = result1[5].Remove(0, 2);
-                //date = result1[0].Remove(0, 2);
-                date1 = DateTime.Parse(date);
+                fiscalNumber = result1[2].Remove(0, 3);
+                fiscalDocument = result1[3].Remove(0, 2);
+                fiscalSign = result1[4].Remove(0, 3);
+                n = result1[5].Remove(0, 2);
+               
 
-
-                list1.Add(new PriceCheck (price.ToString(), result1[2].Remove(0, 2), result1[3].Remove(0, 2), result1[4].Remove(0, 2), result1[5].Remove(0, 2), result1[0].Remove(0, 2)));
+                string[] test1 = result1[0].Remove(0, 2).Split('T');
+                string date = result1[0].Remove(0, 2);
+                data = date.Substring(0, 4) + "-" + date.Substring(4, 2) + "-" + date.Substring(7, 2) + test1[1].Substring(0, 2) + ":" + test1[1].Substring(2, 2) + ":" + test1[1].Substring(2, 2);
+                data1 = DateTime.Parse(data);
+                list1.Add(new PriceCheck (price.ToString(),fiscalNumber, fiscalDocument, fiscalSign, n, data1.ToString()));
 
                 Update();
             }

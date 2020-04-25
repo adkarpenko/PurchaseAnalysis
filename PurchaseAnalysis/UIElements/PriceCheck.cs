@@ -15,21 +15,16 @@ namespace PurchaseAnalysis.UIElements
             Date = date;
 
 
-            PriceLabel1 labelPrice = new PriceLabel1(price);
-            PriceLabel1 labelPrice1 = new PriceLabel1(fiscalNumber);
-            PriceLabel1 labelPrice2 = new PriceLabel1(fiscalDocument);
-            PriceLabel1 labelPrice3 = new PriceLabel1(fiscalSign);
-            PriceLabel1 labelPrice4 = new PriceLabel1(n);
-            PriceLabel1 labelPrice5 = new PriceLabel1(date);
-            Content = new StackLayout
-            {
-                Orientation = StackOrientation.Horizontal,
-                Children =
-                {
-                    labelPrice,labelPrice1,labelPrice2,labelPrice3,labelPrice4,labelPrice5
+            
+            //Content = new StackLayout
+            //{
+            //    Orientation = StackOrientation.Horizontal,
+            //    Children =
+            //    {
+            //        labelPrice,labelPrice1,labelPrice2,labelPrice3,labelPrice4,labelPrice5
 
-                }
-            };
+            //    }
+            //};
 
             BorderColor = Color.Green;
         }
